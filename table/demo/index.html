@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Table Demo</title>
+    <script type="module" src="./index.js"></script>
+    <style>
+      body {
+        font-family: Roboto, sans-serif;
+        margin: 32px;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 24px;
+      }
+
+      .demo-section {
+        margin-bottom: 32px;
+      }
+
+      .demo-section h2 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Table Demo</h1>
+
+    <div class="demo-section">
+      <h2>Basic Table</h2>
+      <md-table>
+        <md-table-header>
+          <md-table-cell header>Name</md-table-cell>
+          <md-ta ble-cell header>Email</md-table-cell>
+          <md-table-cell header>Phone</md-table-cell>
+        </md-table-header>
+        <md-table-row>
+          <md-table-cell>John Doe</md-table-cell>
+          <md-table-cell>john.doe@example.com</md-table-cell>
+          <md-table-cell>(123) 456-7890</md-table-cell>
+        </md-table-row>
+        <md-table-row>
+          <md-table-cell>Jane Smith</md-table-cell>
+          <md-table-cell>jane.smith@example.com</md-table-cell>
+          <md-table-cell>(098) 765-4321</md-table-cell>
+        </md-table-row>
+        <md-table-row>
+          <md-table-cell>Bob Johnson</md-table-cell>
+          <md-table-cell>bob.johnson@example.com</md-table-cell>
+          <md-table-cell>(555) 123-4567</md-table-cell>
+        </md-table-row>
+      </md-table>
+    </div>
+  </body>
+</html>

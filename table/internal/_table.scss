@@ -1,0 +1,90 @@
+//
+// Copyright 2023 Google LLC
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// go/keep-sorted start
+@use 'sass:list';
+@use 'sass:map';
+// go/keep-sorted end
+// go/keep-sorted start
+@use '../../tokens';
+// go/keep-sorted end
+
+@mixin theme($tokens) {
+  $supported-tokens: tokens.$md-comp-test-table-supported-tokens;
+
+  @each $token, $value in $tokens {
+    @if list.index($supported-tokens, $token) == null {
+      @error 'Token `#{$token}` is not a supported token.';
+    }
+
+    @if $value {
+      --md-table-#{$token}: #{$value};
+    }
+  }
+}
+
+@mixin styles() {
+  $tokens: tokens.md-comp-test-table-values();
+
+  :host {
+    box-sizing: border-box;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid map.get($tokens, 'outline-color');
+  }
+
+  ::slotted(md-table-header) {
+    display: table-header-group;
+  }
+
+  ::slotted(md-table-row) {
+    display: table-row;
+  }
+}
+
+@mixin header-styles() {
+  $tokens: tokens.md-comp-test-table-values();
+
+  :host {
+    box-sizing: border-box;
+    display: table-header-group;
+    background-color: map.get($tokens, 'header-cell-color');
+  }
+}
+
+@mixin row-styles() {
+  :host {
+    box-sizing: border-box;
+    display: table-row;
+  }
+}
+
+@mixin cell-styles() {
+  $tokens: tokens.md-comp-test-table-values();
+
+  :host {
+    box-sizing: border-box;
+    display: table-cell;
+    padding: 16px;
+    position: map.get($tokens, 'cell-position');
+    background-color: map.get($tokens, 'cell-color');
+    color: map.get($tokens, 'cell-text-color');
+    font-family: map.get($tokens, 'cell-text-font');
+    font-size: map.get($tokens, 'cell-text-size');
+    line-height: map.get($tokens, 'cell-text-line-height');
+    font-weight: map.get($tokens, 'cell-text-weight');
+    border: 1px solid map.get($tokens, 'cell-grid-color');
+  }
+
+  :host([header]) {
+    background-color: map.get($tokens, 'header-cell-color');
+    color: map.get($tokens, 'header-cell-text-color');
+    font-family: map.get($tokens, 'header-cell-text-font');
+    font-size: map.get($tokens, 'header-cell-text-size');
+    line-height: map.get($tokens, 'header-cell-text-line-height');
+    font-weight: map.get($tokens, 'header-cell-text-weight');
+  }
+}

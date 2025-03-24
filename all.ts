@@ -54,6 +54,10 @@ import './switch/switch.js';
 import './tabs/primary-tab.js';
 import './tabs/secondary-tab.js';
 import './tabs/tabs.js';
+import './table/table.js';
+import './table/table-cell.js';
+import './table/table-header.js';
+import './table/table-row.js';
 import './textfield/filled-text-field.js';
 import './textfield/outlined-text-field.js';
 // go/keep-sorted end
@@ -102,6 +106,10 @@ export * from './switch/switch.js';
 export * from './tabs/primary-tab.js';
 export * from './tabs/secondary-tab.js';
 export * from './tabs/tabs.js';
+export * from './table/table.js';
+export * from './table/table-cell.js';
+export * from './table/table-header.js';
+export * from './table/table-row.js';
 export * from './textfield/filled-text-field.js';
 export * from './textfield/outlined-text-field.js';
 // go/keep-sorted end

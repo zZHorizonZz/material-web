@@ -17,6 +17,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUnusedLocals": true,
     "paths": {
+      "@material/web/testing/*": ["./testing/*"],
       "@material/web/*": ["./*"]
     },
     "sourceMap": true,

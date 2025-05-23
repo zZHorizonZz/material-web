@@ -14,8 +14,18 @@ import {classMap} from 'lit/directives/class-map.js';
 export class Badge extends LitElement {
   @property() value = '';
 
+  override updated(changedProperties: Map<string, unknown>) {
+    if (changedProperties.has('value')) {
+      if (this.value) {
+        this.setAttribute('aria-label', this.value);
+      } else {
+        this.removeAttribute('aria-label');
+      }
+    }
+  }
+
   protected override render() {
-    const classes = {'md3-badge--large': this.value};
+    const classes = {'md3-badge--large': !!this.value}; // Ensure boolean conversion for classMap
 
     return html`<div class="md3-badge ${classMap(classes)}">
       <p class="md3-badge__value">${this.value}</p>
